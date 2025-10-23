@@ -7,6 +7,9 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Ofertas from "./pages/Ofertas";
+import Nosotros from "./pages/Nosotros";
+import Contacto from "./pages/Contacto";
+import Blog from "./pages/Blog";
 
 // Si aún no los usas, déjalos comentados (y también comenta sus imports)
 // import Nosotros from "./pages/Nosotros";
@@ -31,9 +34,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/ofertas" element={<Ofertas />} />
-          {/* <Route path="/nosotros" element={<Nosotros />} /> */}
-          {/* <Route path="/contacto" element={<Contacto />} /> */}
-          {/* <Route path="/blog" element={<Blog />} /> */}
+          { <Route path="/nosotros" element={<Nosotros />} />}
+          { <Route path="/contacto" element={<Contacto />} /> }
+          {<Route path="/blog" element={<Blog />} /> }
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
