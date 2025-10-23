@@ -1,23 +1,31 @@
 import { NavLink } from "react-router-dom";
+import "../App.css";
+
 
 export default function Navbar() {
   return (
     <header className="sc-header">
-      {/* franja azul superior con logo/marca si quieres */}
-      <div className="sc-brand container">
-        <div className="sc-mark">Cafetería <strong>Santa Carla</strong> • Since 2021</div>
+      {/* Franja azul con solo el logo a la izquierda */}
+      <div className="sc-top">
+        <div className="sc-top-inner">
+          <img
+            src="/img/logo192.png"
+            alt="Cafetería Santa Carla"
+            className="sc-logo"
+          />
+        </div>
       </div>
 
-      {/* barra de navegación azul */}
-      <nav className="sc-nav">
-        <div className="container sc-nav-inner">
-          <NavLink end to="/" className="sc-link">Inicio</NavLink>
-          <NavLink to="/menu" className="sc-link">Menú</NavLink>
-          <NavLink to="/nosotros" className="sc-link">Nosotros</NavLink>
-          <NavLink to="/contacto" className="sc-link">Contacto</NavLink>
-          <NavLink to="/blog" className="sc-link">Blog</NavLink>
-          <NavLink to="/ofertas" className="sc-link">Ofertas</NavLink>
-        </div>
+      {/* Barra de navegación */}
+      <nav className="sc-tabs">
+        <ul className="sc-tabs-list">
+          <li><NavLink end to="/" className="sc-tab">Inicio</NavLink></li>
+          <li><NavLink to="/menu" className="sc-tab">Menú</NavLink></li>
+          <li><NavLink to="/nosotros" className="sc-tab">Nosotros</NavLink></li>
+          <li><NavLink to="/contacto" className="sc-tab">Contacto</NavLink></li>
+          <li><NavLink to="/blog" className="sc-tab">Blog</NavLink></li>
+          <li><NavLink to="/ofertas" className="sc-tab">Ofertas</NavLink></li>
+        </ul>
       </nav>
     </header>
   );

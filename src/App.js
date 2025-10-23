@@ -1,11 +1,14 @@
+// src/App.js
 import { Routes, Route } from "react-router-dom";
+
+// 👇 TODOS estos deben ser exports *default* en sus archivos
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Ofertas from "./pages/Ofertas";
-// Las siguientes están comentadas porque aún no las estás usando
+
+// Si aún no los usas, déjalos comentados (y también comenta sus imports)
 // import Nosotros from "./pages/Nosotros";
 // import Contacto from "./pages/Contacto";
 // import Blog from "./pages/Blog";
