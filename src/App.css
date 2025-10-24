@@ -136,9 +136,9 @@ main {
   max-width: 900px;
   margin: 30px auto;
   padding: 20px;
-  background: white;
+  background: rgba(20, 20, 20, 0.021);
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(2, 2, 2, 0);
 }
 
 h2 {
@@ -271,48 +271,7 @@ footer {
   border-radius: 20px; /* bordes redondeados */
   vertical-align: top; /* evita que se alineen raro */
 }
-/* Formulario de contacto */
-.formulario-contacto {
-  margin-top: 25px;
-}
 
-.formulario-contacto h2 {
-  margin-bottom: 15px;
-  color: #6f4e37;
-  text-align: center;
-}
-
-.formulario-contacto form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.formulario-contacto label {
-  font-weight: bold;
-  margin-bottom: 4px;
-  color: #333;
-}
-
-.formulario-contacto input,
-.formulario-contacto textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  width: 100%;
-}
-
-.formulario-contacto input:focus,
-.formulario-contacto textarea:focus {
-  border-color: #5e91b3;
-  outline: none;
-  box-shadow: 0 0 4px rgba(94,145,179,0.4);
-}
-
-.formulario-contacto button {
-  align-self: flex-start; /* que quede alineado a la izquierda */
-}
 .blog-img {
   width: 250px;        /* tamaño fijo para todas las imágenes del blog */
   margin: 5px;         /* espacio entre ellas */
@@ -397,4 +356,145 @@ input:invalid, textarea:invalid {
 .item:hover .menu-img{
   transform: scale(1.02);
   box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+/* Contenedor principal del video */
+.video-background-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Video de fondo - CORREGIDO */
+.background-video {
+  position: fixed; /* Cambiado de absolute a fixed */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Ancho completo de la ventana */
+  height: 100vh; /* Alto completo de la ventana */
+  object-fit: cover;
+  z-index: -2; /* Video detrás de todo */
+}
+
+/* Overlay - CORREGIDO */
+.video-overlay {
+  position: fixed; /* Cambiado de absolute a fixed */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Overlay más oscuro para mejor contraste */
+  z-index: -1; /* Overlay entre el video y el contenido */
+}
+
+/* Contenedor del formulario - CORREGIDO */
+.contenedor2 {
+  position: relative;
+  z-index: 10; /* Aumentado para asegurar que esté sobre el video */
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+/* Estilos del formulario */
+.formulario-contacto {
+  background: rgba(8, 8, 8, 0);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+/* Resto de tus estilos del formulario se mantienen igual */
+.formulario-contacto h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  font-size: 1.8rem;
+}
+
+.formulario-contacto label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #fffefe;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 2px solid #e1e1e152;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.formulario-contacto .error {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+.formulario-contacto .btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.formulario-contacto .btn:hover {
+  background: #0056b3;
+}
+
+.video-background-container .formulario-contacto input,
+.video-background-container .formulario-contacto textarea {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+}
+
+.video-background-container .formulario-contacto input::placeholder,
+.video-background-container .formulario-contacto textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.video-background-container .formulario-contacto input:focus,
+.video-background-container .formulario-contacto textarea:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: #ffffff !important;
+  outline: none !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+}
+
+/* Textarea específico */
+.video-background-container .formulario-contacto textarea {
+  resize: vertical !important;
+  min-height: 120px !important;
+}
+
+/* Mensajes de error en color visible */
+.video-background-container .formulario-contacto .error {
+  color: #ff0000 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+  font-weight: 600 !important;
 }

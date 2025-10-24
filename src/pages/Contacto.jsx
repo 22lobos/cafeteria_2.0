@@ -58,33 +58,45 @@ export default function Contacto() {
   };
 
   return (
-    <main className="contenedor2">
-      <section className="formulario-contacto">
-        <h2>Formulario de Contacto</h2>
-        <form onSubmit={onSubmit}>
-          <label htmlFor="nombre">Nombre:</label>
-          <input id="nombre" value={form.nombre} onChange={handleChange} />
-          {errores.nombre && <p className="error">{errores.nombre}</p>}
+    <div className="video-background-container">
+      {/* Video de fondo en loop */}
+      <video autoPlay muted loop className="background-video">
+        <source src="/video/video-fondo.mp4" type="video/mp4" />
+        Tu navegador no soporta videos HTML5.
+      </video>
+      
+      {/* Overlay para mejor legibilidad */}
+      <div className="video-overlay"></div>
+      
+      {/* Formulario sobre el video */}
+      <main className="contenedor2">
+        <section className="formulario-contacto">
+          <h2>Formulario de Contacto</h2>
+          <form onSubmit={onSubmit}>
+            <label htmlFor="nombre">Nombre:</label>
+            <input id="nombre" value={form.nombre} onChange={handleChange} />
+            {errores.nombre && <p className="error">{errores.nombre}</p>}
 
-          <label htmlFor="apellido">Apellido:</label>
-          <input id="apellido" value={form.apellido} onChange={handleChange} />
-          {errores.apellido && <p className="error">{errores.apellido}</p>}
+            <label htmlFor="apellido">Apellido:</label>
+            <input id="apellido" value={form.apellido} onChange={handleChange} />
+            {errores.apellido && <p className="error">{errores.apellido}</p>}
 
-          <label htmlFor="correo">Correo electrónico:</label>
-          <input id="correo" type="email" value={form.correo} onChange={handleChange} />
-          {errores.correo && <p className="error">{errores.correo}</p>}
+            <label htmlFor="correo">Correo electrónico:</label>
+            <input id="correo" type="email" value={form.correo} onChange={handleChange} />
+            {errores.correo && <p className="error">{errores.correo}</p>}
 
-          <label htmlFor="telefono">Número de Teléfono:</label>
-          <input id="telefono" value={form.telefono} onChange={handleChange} />
-          {errores.telefono && <p className="error">{errores.telefono}</p>}
+            <label htmlFor="telefono">Número de Teléfono:</label>
+            <input id="telefono" value={form.telefono} onChange={handleChange} />
+            {errores.telefono && <p className="error">{errores.telefono}</p>}
 
-          <label htmlFor="mensaje">Mensaje:</label>
-          <textarea id="mensaje" rows="5" value={form.mensaje} onChange={handleChange} />
-          {errores.mensaje && <p className="error">{errores.mensaje}</p>}
+            <label htmlFor="mensaje">Mensaje:</label>
+            <textarea id="mensaje" rows="5" value={form.mensaje} onChange={handleChange} />
+            {errores.mensaje && <p className="error">{errores.mensaje}</p>}
 
-          <button type="submit" className="btn">Enviar</button>
-        </form>
-      </section>
-    </main>
+            <button type="submit" className="btn">Enviar</button>
+          </form>
+        </section>
+      </main>
+    </div>
   );
 }
