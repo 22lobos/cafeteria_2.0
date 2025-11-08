@@ -1,25 +1,63 @@
-import { list } from "../lib/db";
+import { byCategoria } from "../lib/db";
 
-export default function Menu() {
-  const productos = list(); // nunca debería romper por load()
+function Seccion({ titulo, cat }) {
+  const productos = byCategoria(cat);
+  if (!productos.length) return null;
 
   return (
-    <div className="container">
-      <h2 className="h4 mb-3">Menú</h2>
+    <>
+      <h3 className="mt-4 mb-3">{titulo}</h3>
       <div className="row">
-        {productos.map(p => (
+        {productos.map((p) => (
           <div key={p.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
-            <div className="card h-100">
+            <div className="card h-100 shadow-sm">
+              {p.img && (
+                <img
+                  src={p.img}
+                  className="card-img-top"
+                  alt={p.nombre}
+                  style={{ height: "180px", objectFit: "cover" }}
+                />
+              )}
               <div className="card-body">
                 <h5 className="card-title">{p.nombre}</h5>
-                {p.oferta && <span className="badge bg-success mb-2">Oferta</span>}
+
+                {p.oferta && (
+                  <span className="badge bg-success mb-2">
+                    Oferta -20%
+                  </span>
+                )}
+
                 <p className="card-text">{p.desc}</p>
-                <p className="fw-bold">${p.precio.toLocaleString("es-CL")}</p>
+
+                <p className="fw-bold text-primary">
+                  {p.oferta ? (
+                    <>
+                      <span className="text-decoration-line-through text-muted me-2">
+                        ${(p.precio * 1.2).toLocaleString("es-CL")}
+                      </span>
+                      <span>${p.precio.toLocaleString("es-CL")}</span>
+                    </>
+                  ) : (
+                    <>${p.precio.toLocaleString("es-CL")}</>
+                  )}
+                </p>
               </div>
             </div>
           </div>
         ))}
       </div>
+    </>
+  );
+}
+
+export default function Menu() {
+  return (
+    <div className="container mt-4">
+      <h2 className="h4 mb-4 text-center">Menú</h2>
+      <Seccion titulo="Cafés" cat="cafes" />
+      <Seccion titulo="Pasteles" cat="pasteles" />
+      <Seccion titulo="Sandwiches" cat="sandwiches" />
     </div>
   );
 }
