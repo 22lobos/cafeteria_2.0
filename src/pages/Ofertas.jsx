@@ -1,15 +1,14 @@
+// src/pages/Ofertas.jsx
 import { ofertas } from "../lib/db";
 
 export default function Ofertas() {
-  const items = ofertas(); // si no hay ofertas, devuelve []
-
+  const items = ofertas();
   return (
-    <div className="container">
+    <div className="container py-4">
       <h2 className="h4 mb-3">Ofertas</h2>
-      <p className="text-muted">Items en oferta: {items.length}</p>
-      <div className="row">
+      <div className="row g-3">
         {items.map(p => (
-          <div key={p.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+          <div key={p.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
             <div className="card h-100">
               <div className="card-body">
                 <h5 className="card-title">{p.nombre}</h5>

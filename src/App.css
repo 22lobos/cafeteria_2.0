@@ -513,3 +513,16 @@ input:invalid, textarea:invalid {
   height: 10px;
   border-radius: 50%;
 }
+
+/* en App.css */
+.video-background-container { position: relative; }
+.background-video {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: -2;
+}
+.video-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.35); /* semitransparente */
+  z-index: -1;                  /* detrás del contenido */
+}
+.contenedor2 { position: relative; z-index: 0; }
